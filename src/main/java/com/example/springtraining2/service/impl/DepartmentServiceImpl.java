@@ -47,13 +47,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         //update department
         department.setName(departmentRequestDto.getName());
-        Department savedDepartment=departmentRepository.save(department);
+              Department savedDepartment=departmentRepository.save(department);
 
         //append departmentcode to employeecode
         employeeList.forEach(employee -> {
             employee.setCode(departmentRequestDto.getDepartmentCode());
         });
-        employeeRepository.saveAll(employeeList);
+              employeeRepository.saveAll(employeeList);
 
         DepartmentResponseDto responseDto=new DepartmentResponseDto();
         BeanUtils.copyProperties(savedDepartment,responseDto);
